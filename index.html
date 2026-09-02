@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <head>
-<link rel="stylesheet" href="images/style.css">
+ <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css">
 </head>
-<body style="background-image:images/style.css;">
-    <div style="display:flex;justify-content: space-between;color:purple;">
-        <p>placeholdertext</p>
-        <p id="timeElement"></p>
+<body style="background-image: url('images/bg.png');">
+    <div style="position:absolute;background-color: #EDE8D0;width:100%;height:50px;content-align:center;justify-content:center;display:flex;">
+    
+    <p style="margin-left:85%;font-family:arial;font-size:20px;"id="clock">00:00:</p> 
+
     </div>
+    <script>
+             function updateTime() {
+            const now = new Date();
+            // Configured to show only hours and minutes
+            document.getElementById('clock').textContent = now.toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+        }
+
+        // Run the function immediately
+        updateTime(); 
+        // Update the time every 1000 milliseconds to keep it accurate
+        setInterval(updateTime, 1000); 
+    </script>
 </body>
